@@ -5,7 +5,7 @@ import pandas as pd
 import parselmouth
 import pysptk
 
-base_directory = "C://Users//Richard Ladislav//Desktop//final countdown//DP-knihovna pro parametrizaci reci - kod//supershort_database"
+base_directory = "C://Users//Richard Ladislav//Desktop//final countdown//DP-knihovna pro parametrizaci reci - kod//PARCZ_complet"
 
 # Function to estimate F0 using SWIPE' (via Parselmouth)
 def extract_f0_parselmouth(filepath):
@@ -142,10 +142,10 @@ df_rapt = pd.DataFrame(data_rapt, columns=columns)
 df_swipe = pd.DataFrame(data_swipe, columns=columns)
 
 # Save to CSV
-df_parselmouth.to_csv("features_parselmouth_rel_supershort.csv", index=False)
-df_yin.to_csv("features_yin_rel_supershort.csv", index=False)
-df_pyin.to_csv("features_pyin_rel_supershort.csv", index=False)
-df_rapt.to_csv("features_rapt_rel_supershort.csv", index=False)
-df_swipe.to_csv("features_swipe_rel_supershort.csv", index=False)
+df_parselmouth.to_csv("features_parselmouth_parcz.csv", index=False)
+df_yin.to_csv("features_yin_parcz.csv", index=False)
+df_pyin.to_csv("features_pyin_parcz.csv", index=False)
+df_rapt.to_csv("features_rapt_parcz.csv", index=False)
+df_swipe.to_csv("features_swipe_parcz.csv", index=False)
 
 print("Feature extraction completed and saved to CSV files.")
