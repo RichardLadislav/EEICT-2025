@@ -19,11 +19,13 @@ def load_data(file_path):
     return X, y
 
 def train_and_evaluate_model(X, y, model=None, n_splits=5):
-    """Perform stratified k-fold cross-validation using an SVM pipeline with feature scaling."""
+    """Perform stratified k-fold cross-validation using an SVM pipeline with feature scaling.
+    rbf- kernel - zaujimave vysledky
+    """
     if model is None:
         model = Pipeline([
             ('scaler', StandardScaler()),
-            ('classifier', SVC(kernel='linear', class_weight='balanced', probability=True))  # Linear SVM for interpretability
+            ('classifier', SVC(C=5.15, kernel='rbf', class_weight='balanced', gamma = 0.27, probability=True))  # Linear SVM for interpretability
         ])
     
     skf = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42)

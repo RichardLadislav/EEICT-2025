@@ -18,15 +18,16 @@ def load_data(file_path):
     y = df["Label"]  # Labels (0 = Control, 1 = Parkinson's)
     return X, y
 
-def train_and_evaluate_model(X, y, model=None, n_splits=5):
+def train_and_evaluate_model(X, y, model=None, n_splits=7):
     """Perform stratified k-fold cross-validation using a pipeline with feature scaling."""
     if model is None:
         model = Pipeline([
             ('scaler', StandardScaler()),
-            ('classifier', LogisticRegression(max_iter=2000, solver='saga', class_weight='balanced'))
+            ('classifier', LogisticRegression(max_iter=2000, solver='sag', class_weight='balanced'))
         ])
     
     skf = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42)
+    #skf = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42)
     
     balanced_accuracies = []
     confusion_matrices = []
